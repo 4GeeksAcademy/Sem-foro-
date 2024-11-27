@@ -1,25 +1,60 @@
 import React from "react";
+import { useState } from "react"; //importar el hooks 
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
+
 
 //create your first component
 const Home = () => {
+
+	// declaración de estados 
+	const [rojo, setRojo] = useState("red")
+	const [amarillo, setAmarillo] = useState("yellow")
+	const [verde, setVerde] = useState("green")
+
+	function lightred () {
+
+		setRojo("glow")
+		setAmarillo("yellow")
+		setVerde("verde")
+
+	}
+	function lightamarillo () {
+
+		setRojo("red")
+		setAmarillo("glow")
+		setVerde("verde")
+
+	}
+	function lightverde () {
+
+		setRojo("red")
+		setAmarillo("yellow")
+		setVerde("glow")
+
+	}
+
+
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+
+		<div className="body">
+			<div className=" barra ">
+			</div>
+			<div className="cuerpo bg-black ">
+				<div className= {"rounded-circle bg-danger luz " + rojo} onClick={lightred}>
+					
+				</div>
+				<div className={" rounded-circle bg-warning luz " + amarillo } onClick={lightamarillo}><p> </p> </div>
+				<div className={" light rounded-circle bg-success luz " + verde } onClick={lightverde} > <p> </p></div>
+			</div>
 		</div>
+		
+
+
+
+
+
 	);
 };
 
